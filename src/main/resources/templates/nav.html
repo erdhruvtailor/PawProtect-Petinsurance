@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>
+        NavBar
+    </title>
+</head>
+
+<body>
+
+<div th:fragment="nav">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Product DEMO CRM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://127.0.0.1:8081/products">Products</a></li>
+                <li><a href="http://127.0.0.1:8081/categories">Category</a></li>
+                <li><a href="http://127.0.0.1:8081/distributors">Distributors</a></li>
+                <li><a href="http://127.0.0.1:8081/dealers">Dealers</a></li>
+                <li><a href="http://127.0.0.1:8081/taxes">Taxes</a></li>
+            </ul>
+            <a href="http://127.0.0.1:8081/tax" class="btn btn-danger navbar-btn">Reports</a>
+        </div>
+    </nav>
+
+</div>
+
+
+<div th:fragment="homeNav">
+
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 address">
+                        <i class="ti-location-pin"></i> 299 Doon Valley Dr, Kitchener ON N2G 4M4
+                    </div>
+                    <div class="col-sm-6 social">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        Menu<span>Life</span>
+                    </a>
+                    <p>Call Us Now <b>+1 888 (333) 0000</b></p>
+                </div>
+                <div class="collapse navbar-collapse navbar-main-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Services</a>
+                        </li>
+                        <li>
+                            <a href="#">Products</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/login}" class="btn-default">Buy Insurance</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+</div>
+
+</body>
+
