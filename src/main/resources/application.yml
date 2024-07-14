@@ -2,18 +2,13 @@ server:
   port: 8081
 # JPA
 spring:
-  jpa:
-    generate-ddl: true
-  properties:
-  hibernate:
-  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-  ddl-auto: create
-  # MySql
+  application:
+    name: ml_pet_insurance
   datasource:
-    url: jdbc:mysql://localhost:3306/ml_pet_insurance_v2
-    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
     password: root
-    # Connection Pool
+    url: jdbc:mysql://localhost:3306/ml_pet_insurance_v2?createDatabaseIfNotExist=true
+    username: root
     hikari:
       connection-timeout: 20000
       minimum-idle: 10
@@ -21,6 +16,12 @@ spring:
       idle-timeout: 10000
       max-lifetime: 1000
       auto-commit: true
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
 
 
 

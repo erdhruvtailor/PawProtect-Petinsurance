@@ -122,6 +122,164 @@
             </section>
         </div>
     </div>
+
+
+    <div class="container">
+        <div class='signup-container'>
+            <div class='left-container'>
+                <h1>
+                    <b style="color:#FFFFFF">MenuLife</b>
+                </h1>
+                <div class='puppy'>
+                    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'>
+                </div>
+            </div>
+            <div class='right-container'>
+                <header>
+                        <h1>Yay, puppies! Ensure your pup gets the best care!</h1>
+                    <div class='set'>
+                        <div class='pets-name'>
+                            <label for='pets-name'>Name</label>
+                            <input id='pets-name' placeholder=" Pet's name" type='text'>
+                        </div>
+                        <div class='pets-breed'>
+                            <label for='pets-breed'>Breed</label>
+                            <div class="custom-select">
+                                <select id='pets-breed'>
+                                    <option value="0">Pet's breed</option>
+                                    <option value="1">Audi</option>
+                                    <option value="2">BMW</option>
+                                    <option value="3">Citroen</option>
+                                    <option value="4">Ford</option>
+                                    <option value="5">Honda</option>
+                                    <option value="6">Jaguar</option>
+                                    <option value="7">Land Rover</option>
+                                    <option value="8">Mercedes</option>
+                                    <option value="9">Mini</option>
+                                    <option value="10">Nissan</option>
+                                    <option value="11">Toyota</option>
+                                    <option value="12">Volvo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--<div class='pets-photo'>
+                            <button id='pets-upload'>
+                                <i class='fas fa-camera-retro'></i>
+                            </button>
+                            <label for='pets-upload'>Upload a photo</label>
+                        </div>-->
+                    </div>
+                    <div class='set'>
+                        <div class='pets-gender'>
+                            <label for='pet-gender-female'>Gender</label>
+                            <div class='radio-container'>
+                                <input checked='' id='pet-gender-female' name='pet-gender' type='radio' value='female'>
+                                <label for='pet-gender-female'>Female</label>
+                                <input id='pet-gender-male' name='pet-gender' type='radio' value='male'>
+                                <label for='pet-gender-male'>Male</label>
+                            </div>
+                        </div>
+                        <div class='pets-spayed-neutered'>
+                            <label for='pet-spayed'>Spayed or Neutered</label>
+                            <div class='radio-container'>
+                                <input checked='' id='pet-spayed' name='spayed-neutered' type='radio' value='spayed'>
+                                <label for='pet-spayed'>Spayed</label>
+                                <input id='pet-neutered' name='spayed-neutered' type='radio' value='neutered'>
+                                <label for='pet-neutered'>Neutered</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='pets-age'>
+                        <label for='pet-weight-0-25'>Age</label>
+                        <div class='radio-container'>
+                            <input checked='' id='pet-age-0-2' name='pet-age' type='radio' value='0-2'>
+                            <label for='pet-age-0-2'>0-2 years</label>
+                            <input id='pet-age-3-5' name='pet-age' type='radio' value='3-5'>
+                            <label for='pet-age-3-5'>3-5 years</label>
+                            <input id='pet-age-6-8' name='pet-age' type='radio' value='6-8'>
+                            <label for='pet-age-6-8'>6-9 years</label>
+                            <input id='pet-age-100' name='pet-age' type='radio' value='10+'>
+                            <label for='pet-age-100'>10+ years</label>
+                        </div>
+                    </div>
+                    <div class='pets-weight'>
+                        <label for='pet-weight-0-25'>Weight</label>
+                        <div class='radio-container'>
+                            <input checked='' id='pet-weight-0-25' name='pet-weight' type='radio' value='0-25'>
+                            <label for='pet-weight-0-25'>0-25 lbs</label>
+                            <input id='pet-weight-25-50' name='pet-weight' type='radio' value='25-50'>
+                            <label for='pet-weight-25-50'>25-50 lbs</label>
+                            <input id='pet-weight-50-100' name='pet-weight' type='radio' value='50-100'>
+                            <label for='pet-weight-50-100'>50-100 lbs</label>
+                            <input id='pet-weight-100-plus' name='pet-weight' type='radio' value='100+'>
+                            <label for='pet-weight-100-plus'>100+ lbs</label>
+                        </div>
+                    </div>
+                    <div class='set'>
+                        <div class='insurance-coverage'>
+                            <label for='pet-weight-0-25'>Coverage</label>
+                            <div class='radio-container-insirence-cover'>
+                                <input checked='' id='insurance-coverage-1' name='insurance-coverage' type='radio'
+                                       value='1'>
+                                <label for='insurance-coverage-1'>Accident + Illness</label>
+                                <input id='insurance-coverage-2' name='insurance-coverage' type='radio' value='2'>
+                                <label for='insurance-coverage-2'>Accident Only</label>
+                            </div>
+                        </div>
+                        <div class='annual-limit'>
+                            <label for='annual-limit'>Annual Limit</label>
+                            <div class="custom-select">
+                                <select id='annual-limit'>
+                                    <option value="0">$2500</option>
+                                    <option value="1">$3000</option>
+                                    <option value="2">$4000</option>
+                                    <option value="3">$5000</option>
+                                    <option value="4">$7500</option>
+                                    <option value="5">$10000</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='reimbursement-rate'>
+                        <label>Reimbursement Rate</label>
+                        <div class='radio-container-reimbursement-rate'>
+                            <input checked='' id='reimbursement-rate-1' name='reimbursement-rate' type='radio' value='1'>
+                            <label for='reimbursement-rate-1'>70%</label>
+                            <input id='reimbursement-rate-2' name='reimbursement-rate' type='radio' value='2'>
+                            <label for='reimbursement-rate-2'>80%</label>
+                            <input id='reimbursement-rate-3' name='reimbursement-rate' type='radio' value='3'>
+                            <label for='reimbursement-rate-3'>90%</label>
+                        </div>
+                    </div>
+
+                    <div class='annual-deductible'>
+                        <label>Annual Deductible</label>
+                        <div class='radio-container-annual-deductible'>
+                            <input checked='' id='annual-deductible-1' name='annual-deductible' type='radio' value='1000'>
+                            <label for='annual-deductible-1'>$1000</label>
+                            <input id='annual-deductible-2' name='annual-deductible' type='radio' value='750'>
+                            <label for='annual-deductible-2'>$750</label>
+                            <input id='annual-deductible-3' name='annual-deductible' type='radio' value='500'>
+                            <label for='annual-deductible-3'>$500</label>
+                            <input id='annual-deductible-4' name='annual-deductible' type='radio' value='250'>
+                            <label for='annual-deductible-4'>$250</label>
+                            <input id='annual-deductible-5' name='annual-deductible' type='radio' value='100'>
+                            <label for='annual-deductible-5'>$100</label>
+                        </div>
+                    </div>
+
+                </header>
+                <footer>
+                    <div class='set'>
+                        <button id='back'>Reset</button>
+                        <button id='next'>Checkout</button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
     <section class="product-tab">
         <div class="container">
             <div class="row">
@@ -343,7 +501,8 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="news-sec-box">
                         <span class="ti-pencil"></span>
-                        <h4><a href="#">Pet insurance covers unexpected veterinary bills, providing financial peace of mind.</a></h4>
+                        <h4><a href="#">Pet insurance covers unexpected veterinary bills, providing financial peace of
+                            mind.</a></h4>
                         <p>24 Dec 2023</p>
                         <div class="news-by">
                             <a href="#"><img src="images/people-03.jpg"/></a>
@@ -354,7 +513,8 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="news-sec-box">
                         <span class="ti-image"></span>
-                        <h4><a href="#">It ensures timely and high-quality medical care for pets, enhancing their health and longevity.</a></h4>
+                        <h4><a href="#">It ensures timely and high-quality medical care for pets, enhancing their health
+                            and longevity.</a></h4>
                         <p>24 Dec 2023</p>
                         <div class="news-by">
                             <a href="#"><img src="images/people-03.jpg"/></a>
@@ -365,7 +525,8 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="news-sec-box">
                         <span class="ti-comments"></span>
-                        <h4><a href="#">Pet insurance can cover routine wellness exams and vaccinations, promoting preventive care.</a></h4>
+                        <h4><a href="#">Pet insurance can cover routine wellness exams and vaccinations, promoting
+                            preventive care.</a></h4>
                         <p>24 January 2024</p>
                         <div class="news-by">
                             <a href="#"><img src="images/people-03.jpg"/></a>
@@ -376,7 +537,8 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="news-sec-box">
                         <span class="ti-control-play"></span>
-                        <h4><a href="#">Policies often include coverage for accidents, illnesses, and hereditary conditions, offering comprehensive protection.</a></h4>
+                        <h4><a href="#">Policies often include coverage for accidents, illnesses, and hereditary
+                            conditions, offering comprehensive protection.</a></h4>
                         <p>24 May 2024</p>
                         <div class="news-by">
                             <a href="#"><img src="images/people-03.jpg"/></a>
