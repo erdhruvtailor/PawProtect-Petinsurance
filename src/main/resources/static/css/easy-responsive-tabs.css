@@ -126,12 +126,13 @@ body {
     background: #d8aa96;
     color: rgba(0, 0, 0, 0.8);
     display: grid;
-    font-family: "Montserrat", sans-serif;
+    /*font-family: "Montserrat", sans-serif;*/
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 400;
     height: 100vh;
     justify-items: center;
-    weight: 100vw;
+    /*weight: 100vw;*/
 }
 
 .signup-container {
@@ -219,6 +220,24 @@ body {
 .right-container .pets-photo {
     width: 176px;
 }
+#pets-name, #pets-breed, #annual-limit {
+    width: 300px!important;
+}
+.pets-type label{
+    width: 100px!important;
+}
+.pets-gender label{
+    width: 100px!important;
+}
+/*.pets-spayed-neutered label{
+    width: 100px!important;
+}*/
+.radio-container-annual-deductible label{
+    width: 100px!important;
+}
+.reimbursement-rate label{
+    width: 250px!important;
+}
 .right-container .pets-photo {
     align-items: center;
     display: grid;
@@ -276,7 +295,7 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.2);
     height: 38px;
     line-height: 38px;
-    width: 100px;
+    width: 250px;
     border-radius: 19px;
     font-family: "Montserrat", sans-serif;
 }
@@ -299,6 +318,7 @@ body {
 
 .pets-name label,
 .pets-breed label,
+.pets-type label,
 .pets-birthday label,
 .pets-gender label,
 .pets-spayed-neutered label,

@@ -1,6 +1,7 @@
 package com.mlpi.controller;
 
 import com.mlpi.dto.UserProfileDto;
+import com.mlpi.model.User;
 import com.mlpi.model.UserProfile;
 import com.mlpi.service.UserProfileServiceImpl;
 import com.mlpi.service.UserServiceImpl;
@@ -29,13 +30,19 @@ public class UserController {
     }
 
     @GetMapping("/userProfile")
-    public String userProfileForm() {
-        return "user/user_profile";
-    }
+    public String userProfileForm(Model model) {
 
-    @GetMapping("/buyInsurance")
-    public String buyInsurance() {
-        return "user/buy_insurance";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        User user = userServiceImpl.findUserByEmail(userDetails.getUsername());
+        Long userId = user.getId();
+        UserProfile userProfile = userProfileServiceImpl.getUserProfileById(userId);
+        model.addAttribute("userId", userId);
+        model.addAttribute("user", user);
+        model.addAttribute("userProfile", userProfile);
+
+        return "user/user_profile";
     }
 
     @GetMapping("/userProfile/update")
@@ -56,6 +63,9 @@ public class UserController {
                 userProfileDto.setZipCode(userProfile.getZipCode());
 
             }
+
+            System.out.println(userProfileDto);
+
             model.addAttribute("userProfileDto", userProfileDto);
             model.addAttribute("userProfile", userProfile);
 
@@ -70,9 +80,6 @@ public class UserController {
     @PostMapping("/userProfile/update")
     public String userProfileFormUpdate(Model model, @RequestParam Long id, @Valid @ModelAttribute UserProfileDto userProfileDto, BindingResult result) {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
         try {
             UserProfile userProfile = userProfileServiceImpl.getUserProfileById(id);
 
@@ -86,6 +93,7 @@ public class UserController {
             userProfile.setCountry(userProfileDto.getCountry());
             userProfile.setMobileNumber(userProfileDto.getMobileNumber());
             userProfile.setZipCode(userProfileDto.getZipCode());
+            userProfile.setUser(userServiceImpl.getSessionUser());
 
             userProfileServiceImpl.saveUserProfile(userProfile);
 
@@ -94,6 +102,7 @@ public class UserController {
             return "redirect:/user/userProfile/";
         }
 
-        return "user/user_profile_form";
+        //return "user/user_profile_form";
+        return "redirect:/user/userProfile";
     }
 }

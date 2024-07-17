@@ -8,10 +8,14 @@ import com.mlpi.repository.RoleRepository;
 import com.mlpi.repository.UserRepository;
 import com.mlpi.util.TbConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -40,5 +44,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public User getSessionUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        User user = findUserByEmail(userDetails.getUsername());
+        return user;
     }
 }

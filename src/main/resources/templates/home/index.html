@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>MenuLife - Insurance</title>
-    <div th:insert="header::homeHeader"></div>
+    <div th:insert="~{header::homeHeader}"></div>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-fixed-top">
 
-<nav th:replace="nav::homeNav"></nav>
+<nav th:replace="~{nav::homeNav}"></nav>
 
 <div class="clear"></div>
 
@@ -620,7 +620,7 @@
 
 <div class="clear"></div>
 
-<footer th:replace="footer::homeFooter"></footer>
+<footer th:replace="~{footer::homeFooter}"></footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

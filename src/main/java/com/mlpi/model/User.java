@@ -1,10 +1,7 @@
 package com.mlpi.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "users")
 public class User {
 
@@ -33,6 +31,10 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private List<Role> roles = new ArrayList<>();
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "fk_user_id", referencedColumnName = "id")
+//    private List<Coverage> coverages;
 
     public User(String name, String email, String password, List<Role> roles) {
         this.name = name;
