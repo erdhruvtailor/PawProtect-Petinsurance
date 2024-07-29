@@ -220,7 +220,11 @@ body {
 .right-container .pets-photo {
     width: 176px;
 }
-#pets-name, #pets-breed, #annual-limit {
+
+#pets-pay {
+    width: 100%!important;
+}
+#pets-name, #pets-breed, #annual-limit, #policy-period {
     width: 300px!important;
 }
 .pets-type label{
@@ -299,6 +303,16 @@ body {
     border-radius: 19px;
     font-family: "Montserrat", sans-serif;
 }
+
+.genericButton {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 30px;
+    line-height: 38px;
+    width: 50px;
+    border-radius: 19px;
+    font-family: "Montserrat", sans-serif;
+}
+
 .right-container footer #back {
     background: #fff;
     transition: 0.2s all ease-in-out;
@@ -317,6 +331,7 @@ body {
 }
 
 .pets-name label,
+.policy-period label,
 .pets-breed label,
 .pets-type label,
 .pets-birthday label,
@@ -499,3 +514,8 @@ body {
         display: none !important;
     }
 }
+
+/*
+i {
+    font-size: large !important;
+}*/

@@ -1,5 +1,6 @@
 package com.mlpi.dto;
 
+import com.mlpi.model.Pet;
 import com.mlpi.model.User;
 import lombok.*;
 
@@ -10,14 +11,10 @@ import lombok.*;
 @NoArgsConstructor
 public class CoverageDto {
     private Long id;
+    private Long policyNumber;
     private User user;
-    private String petName;
-    private String petType;
-    private String breed;
-    private String gender;
-    private String reproductiveOrgans;
-    private String age;
-    private String weight;
+    private Pet pet;
+    private Integer policyPeriod;
     private String coverage;
     private Double grandTotal;
     private String annualLimit;

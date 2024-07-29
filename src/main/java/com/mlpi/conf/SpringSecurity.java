@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +21,9 @@ public class SpringSecurity{
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
+        requestCache.setMatchingRequestParameterName(null);
+
         http.csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/registration/**").permitAll()
@@ -31,12 +35,15 @@ public class SpringSecurity{
                 )
                 .formLogin((form) -> form
                         .loginPage("/")
-//                        .loginPage("/login")
+                        .failureForwardUrl("/")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/user/userProfile")
                         .permitAll()
                 )
                 .logout((logout) -> logout.permitAll())
+                .requestCache((cache) -> cache
+                        .requestCache(requestCache)
+                )
                 .exceptionHandling().accessDeniedPage("/access-denied");
         return http.build();
     }

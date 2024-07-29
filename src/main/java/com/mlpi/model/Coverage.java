@@ -25,7 +25,11 @@ public class Coverage {
     @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
     private User user;
 
-    @Column(length = 30)
+    @ManyToOne
+    @JoinColumn(name = "petId", referencedColumnName = "id", nullable = false)
+    private Pet pet;
+
+    /*@Column(length = 30)
     private String petType;
 
     @Column(length = 30)
@@ -44,7 +48,12 @@ public class Coverage {
     private String age;
 
     @Column(length = 30)
-    private String weight;
+    private String weight;*/
+
+    @Column(length = 10)
+    private Long policyNumber;
+
+    private Integer policyPeriod;
 
     @Column(length = 30)
     private String coverage;
@@ -60,4 +69,6 @@ public class Coverage {
     private String annualDeductible;
 
     private Date buyDate;
+
+    private Date updateDate;
 }

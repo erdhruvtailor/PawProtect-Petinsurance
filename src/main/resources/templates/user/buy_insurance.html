@@ -22,9 +22,44 @@
                     <div class='right-container'>
                         <form method="post" role="form text-left" th:object="${coverageDto}">
                             <header>
-                                <h1>Get the best coverage!</h1>
+                                <h4><i class="fa-solid fa-shield"></i> Get the best coverage! <a style="padding-left:15px;font-size: 25px !important;" class="text-secondary font-weight-bold text-xs" data-original-title="Purchashed Policies" data-toggle="tooltip" th:href="@{/policy/activeCovrage}"> <i class="fa-duotone fa-solid fa-list"></i></a></h4>
+
+                                <hr>
+
 
                                 <div class='set'>
+                                    <div class='pets-name'>
+                                        <label for='pets-name'>Select Pet to get the Policy</label>
+
+                                        <select id="pets-name" name="pet" th:field="${coverageDto.pet}">
+                                            <option value="" disabled selected>Select pet</option>
+                                            <option th:each="pet : ${petsList}" th:value="${pet.id}" th:text="${pet.petName}"></option>
+                                        </select>
+
+                                        <a style="font-size: 25px !important;" class="text-secondary font-weight-bold text-xs" data-original-title="Edit user"
+                                           data-toggle="tooltip" th:href="@{/pet/petForm}">
+                                            +
+                                        </a>
+                                    </div>
+
+
+                                    <div class='policy-period'>
+                                        <label for='policy-period'>Policy Period</label>
+                                        <div class="custom-select">
+                                            <select id='policy-period' name="policyPeriod"
+                                                    th:field="${coverageDto.policyPeriod}">
+                                                <option value="3">3 Months</option>
+                                                <option value="6">6 Months</option>
+                                                <option value="8">8 Months</option>
+                                                <option value="12">1 Year</option>
+                                                <option value="24">2 Years</option>
+                                                <option value="36">3 Years</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--<div class='set'>
                                     <div class='pets-name'>
                                         <label for='pets-name'>Name</label>
                                         <input id='pets-name' name="petName" placeholder=" Pet's name"
@@ -142,10 +177,10 @@
                                                value='100+'>
                                         <label for='pet-weight-100-plus'>100+ lbs</label>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class='set'>
                                     <div class='insurance-coverage'>
-                                        <label for='pet-weight-0-25'>Coverage</label>
+                                        <label for='insurance-coverage'>Coverage</label>
                                         <div class='radio-container-insirence-cover'>
                                             <input checked='' id='insurance-coverage-1' name='coverage'
                                                    th:field="${coverageDto.coverage}"
@@ -164,12 +199,12 @@
                                         <div class="custom-select">
                                             <select id='annual-limit' name='annualLimit'
                                                     th:field="${coverageDto.annualLimit}">
-                                                <option value="$2500">$2500</option>
-                                                <option value="$3000">$3000</option>
-                                                <option value="$4000">$4000</option>
-                                                <option value="$5000">$5000</option>
-                                                <option value="$7500">$7500</option>
-                                                <option value="$10000">$10000</option>
+                                                <option value="2500">$2500</option>
+                                                <option value="3000">$3000</option>
+                                                <option value="4000">$4000</option>
+                                                <option value="5000">$5000</option>
+                                                <option value="7500">$7500</option>
+                                                <option value="10000">$10000</option>
                                             </select>
                                         </div>
                                     </div>
@@ -179,15 +214,15 @@
                                     <label>Reimbursement Rate</label>
                                     <div class='radio-container-reimbursement-rate'>
                                         <input checked='' id='reimbursement-rate-1' name='reimbursementRate'
-                                               th:field="${coverageDto.reimbursementRate}" type='radio' value='70%'>
+                                               th:field="${coverageDto.reimbursementRate}" type='radio' value='70'>
                                         <label for='reimbursement-rate-1'>70%</label>
                                         <input id='reimbursement-rate-2' name='reimbursementRate'
                                                th:field="${coverageDto.reimbursementRate}" type='radio'
-                                               value='80%'>
+                                               value='80'>
                                         <label for='reimbursement-rate-2'>80%</label>
                                         <input id='reimbursement-rate-3' name='reimbursementRate'
                                                th:field="${coverageDto.reimbursementRate}" type='radio'
-                                               value='90%'>
+                                               value='90'>
                                         <label for='reimbursement-rate-3'>90%</label>
                                     </div>
                                 </div>
@@ -197,35 +232,34 @@
                                     <div class='radio-container-annual-deductible'>
                                         <input checked='' id='annual-deductible-1' name='annualDeductible'
                                                th:field="${coverageDto.annualDeductible}"
-                                               type='radio' value='$1000'>
+                                               type='radio' value='1000'>
                                         <label for='annual-deductible-1'>$1000</label>
                                         <input id='annual-deductible-2' name='annualDeductible'
                                                th:field="${coverageDto.annualDeductible}" type='radio'
-                                               value='$750'>
+                                               value='750'>
                                         <label for='annual-deductible-2'>$750</label>
                                         <input id='annual-deductible-3' name='annualDeductible'
                                                th:field="${coverageDto.annualDeductible}" type='radio'
-                                               value='$500'>
+                                               value='500'>
                                         <label for='annual-deductible-3'>$500</label>
                                         <input id='annual-deductible-4' name='annualDeductible'
                                                th:field="${coverageDto.annualDeductible}" type='radio'
-                                               value='$250'>
+                                               value='250'>
                                         <label for='annual-deductible-4'>$250</label>
                                         <input id='annual-deductible-5' name='annualDeductible'
                                                th:field="${coverageDto.annualDeductible}" type='radio'
-                                               value='$100'>
+                                               value='100'>
                                         <label for='annual-deductible-5'>$100</label>
                                     </div>
                                 </div>
 
-                                <input id='grandTotal' name="grandTotal" th:field="${coverageDto.grandTotal}"
-                                       type='type' value="1500">
+                                <input id='grandTotal' name="grandTotal" th:field="${coverageDto.grandTotal}" type='hidden' value="1500">
 
                             </header>
                             <footer>
                                 <div class='set'>
                                     <button id='back'>Reset</button>
-                                    <button type="submit">Checkout (Grand Total: 1050$)</button>
+                                    <button type="submit">Checkout (Grand Total: <span id="displayTotal">1500</span>$)</button>
                                 </div>
                             </footer>
                         </form>

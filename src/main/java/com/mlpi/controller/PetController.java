@@ -96,7 +96,13 @@ public class PetController {
             return "redirect:/pet/listedPets";
         }
 
-        return "user/pets_form";
+        return "redirect:/pet/listedPets";
+    }
+
+    @DeleteMapping("/pet/{id}")
+    public String deletePet(@PathVariable(value = "id", required = true) Long id, Model model) {
+        petServiceImp.deletePetById(id);
+        return "user/listed_pets";
     }
 
 }

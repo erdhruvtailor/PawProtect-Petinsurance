@@ -22,7 +22,7 @@
 
 
                     <div class="card-header pb-0">
-                        <h6>Listed Pets <a style="font-size: 25px !important;" class="text-secondary font-weight-bold text-xs" data-original-title="Add Pet" data-toggle="tooltip" th:href="@{/pet/petForm}">+</a></h6>
+                        <h6><i class="fa-solid fa-money-check-dollar"></i> Paid Policy History </h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -30,36 +30,32 @@
                                 <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Policy Number
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Pet Name
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Breed
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Status
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Type
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Amount
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-
+                                        Pay Date
                                     </th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="pet: ${petsList}">
-                                    <td class="text-xs font-weight-bold mb-0" th:text="${pet.petName}"></td>
-                                    <td class="text-xs font-weight-bold mb-0" th:text="${pet.breed}"></td>
-                                    <td class="text-xs font-weight-bold mb-0" th:text="${pet.petType}"></td>
-                                    <td class="text-xs font-weight-bold mb-0" th:text="${pet.createdAt}"></td>
-                                    <td class="align-middle">
-
-                                        <button type="button" class="text-secondary font-weight-bold text-xs genericButton" data-original-title="Delete Pet"
-                                                data-toggle="tooltip" th:onclick="'deletePet(\'' + ${pet.id} + '\')'"> <i class="fas fa-trash-alt" style="color:red;"></i></button>
-
-                                        <a class="text-secondary font-weight-bold text-xs" data-original-title="Edit user"
-                                           data-toggle="tooltip" th:href="@{/pet/petForm(id=${pet.id})}">
-                                            <i class="fas fa-edit" style="color:blue;"></i>
-                                        </a>
+                                <tr th:each="payPolicy: ${payPolicyList}">
+                                    <td class="text-xs font-weight-bold mb-0" th:text="${payPolicy.policyNumber.policyNumber}"></td>
+                                    <td class="text-xs font-weight-bold mb-0" th:text="${payPolicy.pet.petName}"></td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Success</span>
                                     </td>
+                                    <td class="text-xs font-weight-bold mb-0" th:text="${payPolicy.amount}"></td>
+                                    <td class="text-xs font-weight-bold mb-0" th:text="${payPolicy.payDate}"></td>
                                 </tr>
                                 </tbody>
                             </table>

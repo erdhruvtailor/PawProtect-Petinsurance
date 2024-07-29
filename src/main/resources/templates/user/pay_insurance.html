@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{user/header::userHeader}"></head>
+
+<body class="g-sidenav-show bg-gray-100">
+
+<aside th:replace="~{user/aside::userAside}"></aside>
+
+<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+
+    <nav th:replace="~{user/nav::userNav}"></nav>
+
+    <div class="container-fluid">
+        <div class="page-header min-height-200 border-radius-xl"
+             style="background-image: url('/img/curved-images/curved0.jpg'); background-position-y: 50%;">
+            <span class="mask bg-gradient-primary opacity-6"></span>
+        </div>
+        <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+            <div class="container">
+                <div class='signup-container'>
+                    <div class='right-container'>
+                        <form method="post" role="form text-left" th:object="${coverageDto}">
+                            <header>
+                                <h4><i class="fa-solid fa-shield"></i> Pay to keep active coverage! <a style="padding-left:15px;font-size: 25px !important;" class="text-secondary font-weight-bold text-xs" data-original-title="Purchashed Policies" data-toggle="tooltip" th:href="@{/policy/activeCovrage}"> <i class="fa-duotone fa-solid fa-list"></i></a></h4>
+
+                                <hr>
+
+                                <div class='set'>
+                                    <div class='pets-name'>
+                                        <label>Select Policy to pay</label>
+                                        <select id="pets-pay" name="pet" th:field="${payPolicyDto.policyNumber}">
+                                            <option value="" disabled selected>Select Policy</option>
+                                            <option th:each="policy: ${policyInfo}" th:value="${policy.policyNumber}" th:text="${policy.policyNumber}+','+${policy.pet.petName}+'|'+${policy.policyPeriod}+' Months ,'+${policy.coverage}+',$'+${policy.annualLimit}+',$'+${policy.annualDeductible}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class='set'>
+                                    <div class='pets-name'>
+                                        <label for='pets-name'>Amount</label>
+                                        <input id='pets-name' name="amount" placeholder="Policy amount"
+                                               th:field="${payPolicyDto.amount}"
+                                               type='number'>
+                                    </div>
+                                </div>
+
+
+                            </header>
+                            <footer>
+                                <div class='set'>
+                                    <button type="submit">Pay</button>
+                                </div>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container-fluid py-4">
+
+    </div>
+    <div class="clear"></div>
+
+    <div th:replace="~{user/footer::userFooter}"></div>
+</div>
+</body>
+</html>

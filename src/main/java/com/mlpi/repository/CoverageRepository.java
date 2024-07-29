@@ -16,4 +16,10 @@ public interface CoverageRepository extends JpaRepository<Coverage,Long> {
     public List<Coverage> getCoverageByUser(Long id);
 
     public Coverage getCoverageById(Long id);
+
+    @Query("SELECT COUNT(coverage) FROM Coverage coverage WHERE coverage.user.id = :userId")
+    long countCoveragesByUserId(Long userId);
+
+    @Query("SELECT SUM(coverage.grandTotal) FROM Coverage coverage WHERE coverage.user.id = :userId")
+    Double sumUserWiseGrandTotal(Long userId);
 }

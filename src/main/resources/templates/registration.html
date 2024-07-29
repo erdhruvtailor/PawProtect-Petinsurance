@@ -1,60 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
 
-    <title>Registration</title>
+<!--<head th:replace="~{user/header::userHeader}"></head>-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>
+        Menulife - Login
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
+
+
+
 <body>
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-6 mx-auto">
-            <form
-                    method="post"
-                    role="form"
-                    th:action="@{/registration}"
-                    th:object="${user}"
-            >
-                <h1>Registration Form</h1>
-                <div th:if="${param.success}">
-                    <div class="alert alert-info">
-                        Registration successful !!!
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="name">Name</label>
-                    <input class="form-control" id="name" name="name" type="text">
-                    <p class="text-danger" th:errors="*{name}"
-                       th:if="${#fields.hasErrors('name')}"></p>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control" id="email" name="email" type="email">
-                    <p class="text-danger" th:errors="*{email}"
-                       th:if="${#fields.hasErrors('email')}"></p>
-                </div>
-                <div class="mb-3">
-                    <label class="col-sm-2 col-form-label" for="password">Password</label>
-                    <input class="form-control" id="password" name="password" type="password">
-                    <p class="text-danger" th:errors="*{password}"
-                       th:if="${#fields.hasErrors('password')}"></p>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary mb-3" type="submit">Register</button>
-                    or <a class="link-primary" th:href="@{/login}">Login</a>
-                </div>
-            </form>
+<div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+        <div class="col-12">
+            <!-- Navbar -->
+
+            <!-- End Navbar -->
         </div>
     </div>
 </div>
 
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain mt-8">
+                            <div class="card-header pb-0 text-left bg-transparent">
+                                <h3 class="font-weight-bolder text-info text-gradient">Registration Form</h3>
+                                <p class="mb-0"></p>
+                            </div>
+                            <div class="card-body">
+                                <div th:if="${param.success}">
+                                    <div class="alert alert-info">
+                                        Registration successful !!!
+                                    </div>
+                                </div>
+                                <form method="post"
+                                      role="form"
+                                      th:action="@{/registration}"
+                                      th:object="${user}">
 
-<script crossorigin="anonymous"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+                                    <label>Name</label>
+                                    <div class="mb-3">
+                                        <input class="form-control" id="name" name="name" placeholder="Enter name"  type="text">
+                                        <p class="text-danger" th:errors="*{name}"
+                                           th:if="${#fields.hasErrors('name')}"></p>
+                                    </div>
+                                    <label>Email</label>
+                                    <div class="mb-3">
+                                        <input class="form-control" id="email" name="email" placeholder="Enter email address"  type="email">
+                                        <p class="text-danger" th:errors="*{email}"
+                                           th:if="${#fields.hasErrors('email')}"></p>
+                                    </div>
+                                    <label>Password</label>
+                                    <div class="mb-3">
+                                        <input class="form-control" id="password" name="password" placeholder="Enter password" type="password" aria-describedby="password-addon">
+                                        <p class="text-danger" th:errors="*{password}"
+                                           th:if="${#fields.hasErrors('password')}"></p>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    Already have an account?
+                                    <a th:href="@{/login}" class="text-info text-gradient font-weight-bold">Sign In</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('/img/curved-images/curved6.jpg'); background-position-y: 50%;" ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div th:replace="~{user/footer::userFooter}"></div>
 
 </body>
 </html>

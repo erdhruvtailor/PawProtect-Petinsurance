@@ -27,4 +27,11 @@ public class CoverageServiceImp implements CoverageService {
         return coverageRepository.getCoverageById(id);
     }
 
+    public long getCoveragesCountByUser(Long userId) {
+        return coverageRepository.countCoveragesByUserId(userId);
+    }
+
+    public Double sumUserWiseGrandTotal(Long userId) {
+        return coverageRepository.sumUserWiseGrandTotal(userId);
+    }
 }
