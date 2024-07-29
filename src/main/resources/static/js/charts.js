@@ -1,3 +1,4 @@
+/*
 var ctx = document.getElementById("chart-bars").getContext("2d");
 
 new Chart(ctx, {
@@ -166,4 +167,68 @@ new Chart(ctx2, {
             },
         },
     },
+});
+
+*/
+
+
+$(document).ready(function() {
+    $.ajax({
+        url: '/policy/getMapperAttributes',
+        type: 'GET',
+        success: function(data) {
+            var labels = [];
+            var annualLimits = [];
+            var reimbursementRates = [];
+            var annualDeductibles = [];
+
+            data.forEach(function(coverage, index) {
+                labels.push('Coverage ' + (index + 1));
+                annualLimits.push(coverage.annualLimit);
+                reimbursementRates.push(coverage.reimbursementRate);
+                annualDeductibles.push(coverage.annualDeductible);
+            });
+
+            var ctx = document.getElementById('coverageChart').getContext('2d');
+            var coverageChart = new Chart(ctx, {
+                type: 'bar', // or 'line', 'pie', etc.
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Annual Limit',
+                            data: annualLimits,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Reimbursement Rate',
+                            data: reimbursementRates,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Annual Deductible',
+                            data: annualDeductibles,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        },
+        error: function(error) {
+            console.log('Error:', error);
+        }
+    });
 });

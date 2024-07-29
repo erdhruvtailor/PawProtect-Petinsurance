@@ -40,6 +40,9 @@ public class DashboardController {
             Double sumUserWiseGrandTotal = coverageServiceImp.sumUserWiseGrandTotal(userServiceImpl.getSessionUser().getId());
             Double sumTotalPaid = payPolicyServiceImp.sumUserWisePay(userServiceImpl.getSessionUser().getId());
 
+
+
+
             model.addAttribute("coverageList", coverageList);
             model.addAttribute("totalPets", totalPets);
             model.addAttribute("totalCoverages", totalCoverages);
