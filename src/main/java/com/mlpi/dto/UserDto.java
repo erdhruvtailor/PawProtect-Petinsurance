@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,4 +25,6 @@ public class UserDto {
 
     @NotEmpty(message = "Please enter valid password.")
     private String password;
+
+    private Date createAt;
 }

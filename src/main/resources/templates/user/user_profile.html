@@ -98,22 +98,22 @@
                                 Name:</strong> &nbsp; <span th:text="${user.getName()}"></span>
                             </li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
-                                &nbsp; <span th:text="${userProfile.mobileNumber}"></span>
+                                &nbsp; <span th:text="${userProfile?.mobileNumber?:'N/A'}"></span>
                             </li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong>
                                 &nbsp; <span th:text="${user.getEmail()}"></span>
                             </li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                    class="text-dark">Address:</strong> &nbsp; <span th:text="${userProfile.address}"></span>
+                                    class="text-dark">Address:</strong> &nbsp; <span th:text="${userProfile?.address?:'N/A'}"></span>
                             </li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                    class="text-dark">Location:</strong> &nbsp; <span th:text="${userProfile.city}"></span>
+                                    class="text-dark">Location:</strong> &nbsp; <span th:text="${userProfile?.city?:'N/A'}"></span>
                             </li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                    class="text-dark">Zip Code:</strong> &nbsp; <span th:text="${userProfile.zipCode}"></span>
+                                    class="text-dark">Zip Code:</strong> &nbsp; <span th:text="${userProfile?.zipCode?:'N/A'}"></span>
                             </li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                    class="text-dark">Country:</strong> &nbsp; <span th:text="${userProfile.country}"></span>
+                                    class="text-dark">Country:</strong> &nbsp; <span th:text="${userProfile?.country?:'N/A'}"></span>
                             </li>
                         </ul>
                     </div>

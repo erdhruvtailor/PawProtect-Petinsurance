@@ -46,8 +46,8 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Policy</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        $<span th:text="${sumUserWiseGrandTotal}"></span>
-                                        <span class="text-success text-sm font-weight-bolder">+55%</span>
+                                        $<span th:text="${sumUserWiseGrandTotal?:'0'}"></span>
+                                        <!--<span class="text-success text-sm font-weight-bolder">+55%</span>-->
                                     </h5>
                                 </div>
                             </div>
@@ -68,8 +68,8 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Registered Pets</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        <span th:text="${totalPets}"></span>
-                                        <span class="text-success text-sm font-weight-bolder">+3%</span>
+                                        <span th:text="${totalPets?:'0'}"></span>
+                                        <!--<span class="text-success text-sm font-weight-bolder">+3%</span>-->
                                     </h5>
                                 </div>
                             </div>
@@ -90,8 +90,8 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Purchased Policy</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        <span th:text="${totalCoverages}"></span>
-                                        <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                                        <span th:text="${totalCoverages?:'0'}"></span>
+                                        <!--<span class="text-danger text-sm font-weight-bolder">-2%</span>-->
                                     </h5>
                                 </div>
                             </div>
@@ -112,8 +112,8 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Paid Amount</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        $<span th:text="${sumTotalPaid}"></span>
-                                        <span class="text-success text-sm font-weight-bolder">+5%</span>
+                                        $<span th:text="${sumTotalPaid?:'0'}"></span>
+                                        <!--<span class="text-success text-sm font-weight-bolder">+5%</span>-->
                                     </h5>
                                 </div>
                             </div>
@@ -164,6 +164,8 @@
 
 
             <div th:replace="~{user/footer::userFooter}"></div>
+            <script src="/js/menulife.js"></script>
+            <script src="/js/charts.js"></script>
 
         </div>
 </main>

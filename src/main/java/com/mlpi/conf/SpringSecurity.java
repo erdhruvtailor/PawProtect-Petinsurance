@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 @Configuration
@@ -26,6 +27,9 @@ public class SpringSecurity{
 
         http.csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/resources/static/**").permitAll()
+                        .requestMatchers("/resources/static/img/**").permitAll()
+                        .requestMatchers("/img/**").permitAll()
                         .requestMatchers("/registration/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
@@ -34,13 +38,19 @@ public class SpringSecurity{
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-                        .loginPage("/")
-                        .failureForwardUrl("/")
-                        .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/user/userProfile")
-                        .permitAll()
-                )
-                .logout((logout) -> logout.permitAll())
+                                .loginPage("/")
+                                .loginProcessingUrl("/login")
+//                        .failureForwardUrl("/")
+//                                .defaultSuccessUrl("/policy/buyInsurance", true)
+                                .defaultSuccessUrl("/dashboard/", true)
+                                .permitAll()
+                ).logout((logout) -> logout
+                .logoutUrl("/logout") // Default is "/logout"
+                .logoutSuccessUrl("/login?logout") // Redirect after logout
+                .invalidateHttpSession(true) // Invalidate session
+                .deleteCookies("JSESSIONID") // Delete cookies
+                .permitAll())
+//                .logout((logout) -> logout.permitAll())
                 .requestCache((cache) -> cache
                         .requestCache(requestCache)
                 )

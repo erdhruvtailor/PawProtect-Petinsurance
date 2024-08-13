@@ -42,6 +42,7 @@ public class CoverageController {
 
             List<Coverage> coverageList = coverageServiceImp.getCoverageByUser(userServiceImpl.getSessionUser().getId());
             model.addAttribute("coverageList", coverageList);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
@@ -75,6 +76,7 @@ public class CoverageController {
             List<Pet> petsList = petServiceImp.getPetByUser(userServiceImpl.getSessionUser().getId());
             model.addAttribute("petsList", petsList);
             model.addAttribute("coverageDto", coverageDto);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
@@ -135,6 +137,7 @@ public class CoverageController {
             Coverage policy = coverageServiceImp.getCoverageById(id);
             model.addAttribute("policyInfo", policy);
             model.addAttribute("payPolicyDto", payPolicyDto);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
@@ -175,6 +178,7 @@ public class CoverageController {
 
             List<PayPolicy> payPolicyList = payPolicyServiceImp.getPayByUser(userServiceImpl.getSessionUser().getId());
             model.addAttribute("payPolicyList", payPolicyList);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());

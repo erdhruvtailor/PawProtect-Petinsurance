@@ -27,12 +27,14 @@
                 </div>
                 <ul class="navbar-nav justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="/coverage/buyInsurance">Explore insurance coverage</a>
+                        <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="/policy/buyInsurance">Explore insurance coverage</a>
                     </li>
                     <li class="nav-item d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Hello</span>
+                            <span class="d-sm-inline d-none">
+                                Hello <span th:text="${username}"></span>
+                            </span>
                         </a>
                     </li>
                     <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
@@ -44,11 +46,6 @@
                                     <i class="sidenav-toggler-line bg-white"></i>
                                 </div>
                             </a>
-                        </a>
-                    </li>
-                    <li class="nav-item px-3 d-flex align-items-center">
-                        <a href="/user/userProfile" class="nav-link text-white p-0">
-                            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                         </a>
                     </li>
                 </ul>

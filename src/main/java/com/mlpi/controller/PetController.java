@@ -33,6 +33,7 @@ public class PetController {
 
             List<Pet> petsList = petServiceImp.getPetByUser(userServiceImpl.getSessionUser().getId());
             model.addAttribute("petsList", petsList);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
@@ -58,6 +59,7 @@ public class PetController {
             }
 
             model.addAttribute("petDto", petDto);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());

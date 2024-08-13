@@ -41,6 +41,7 @@ public class UserController {
         model.addAttribute("userId", userId);
         model.addAttribute("user", user);
         model.addAttribute("userProfile", userProfile);
+        model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         return "user/user_profile";
     }
@@ -64,10 +65,9 @@ public class UserController {
 
             }
 
-            System.out.println(userProfileDto);
-
             model.addAttribute("userProfileDto", userProfileDto);
             model.addAttribute("userProfile", userProfile);
+            model.addAttribute("username", userServiceImpl.getSessionUser().getName());
 
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
